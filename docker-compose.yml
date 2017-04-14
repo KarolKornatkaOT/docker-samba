@@ -1,0 +1,11 @@
+version: '2'
+services:
+  samba:
+    image: docker-samba
+    ports:
+     - "137:137"
+     - "138:138"
+     - "139:139"
+     - "455:455"
+    volumes:
+      - /var/data/smb/:/var/data/smb/
