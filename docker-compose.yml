@@ -1,11 +1,13 @@
 version: '2'
 services:
   samba:
-    image: docker-samba
+    build: ./image
+    image: docker-samba:1
     ports:
-     - "137:137"
-     - "138:138"
-     - "139:139"
-     - "455:455"
+      - "137:137"
+      - "138:138"
+      - "139:139"
+      - "455:455"
     volumes:
-      - /var/data/smb/:/var/data/smb/
+      - /home/karol/samba/:/var/data/smb/
+    entrypoint: "/usr/sbin/smbd -FS"
